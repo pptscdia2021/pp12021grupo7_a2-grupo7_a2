@@ -1,5 +1,6 @@
 import obtenerDatos
 import pandas as pd
+import yahoofinance 
 
 if __name__ == "__main__":
     
@@ -12,3 +13,10 @@ if __name__ == "__main__":
     print('')
     df_bolsaMadrid = pd.read_csv('bolsa_ibex35.csv')
     print(df_bolsaMadrid)
+
+    #Método Yahoo Finance
+
+    acciones = ["MELI", "DIS", "ADS.SG", "TSLA", "NFLX"]
+    yahoofinance.ObtenerDatos(acciones)
+    df_yahoofinance = pd.read_csv('Yahoo_finance.csv')
+    print(df_yahoofinance)
