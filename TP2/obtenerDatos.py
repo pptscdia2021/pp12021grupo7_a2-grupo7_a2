@@ -22,7 +22,7 @@ def obtener_datos():
     ult=""
     dif=""
     nroFila=0
-    df = pd.DataFrame(columns=["Nombre" , "Ult", "Dif", "Fecha"])
+    df = pd.DataFrame(columns=["Nombre" , "Ult", "Max", "Min", "Dif", "Fecha"])
 
     for fila in tabla.find_all("tr"):
         nroCelda=0
@@ -36,16 +36,26 @@ def obtener_datos():
             if nroCelda==2:
                 dif=celda.text
                 #print("Dif:", dif)
+            if nroCelda==3:
+                max=celda.text
+                #print("Max:", max)
+            if nroCelda==4:
+                min=celda.text
+                #print("Min:", min)
             nroCelda=nroCelda+1        
         nroFila=nroFila+1
         if nroFila>1:   
-            df = df.append({'Nombre':name, 'Ult':ult, 'Dif':dif, 'Fecha': datetime.now()}, ignore_index=True)
+            df = df.append({'Nombre':name, 'Ult':ult, 'Dif':dif,'Max':max,'Min':min, 'Fecha': datetime.now()}, ignore_index=True)
 
     #chequeamos si el archivo csv existe. Si es asi se borra.
     if os.path.exists(path):
         #print("che ya existo")
         os.remove(path)
         
+
+    df["Max"] = df["Max"].str.replace(",", ".").astype(float)
+    df["Min"] = df["Min"].str.replace(",", ".").astype(float)
+
     #Guardamos los datos en el archivo csv
     df.to_csv('bolsa_ibex35.csv')
     

@@ -7,8 +7,8 @@ def obtenerDatos(acciones):
     for ticker in acciones:
         df = investpy.get_stock_historical_data(stock=ticker,
                                         country='United States',
-                                        from_date='01/01/2020',
-                                        to_date='10/01/2020')
+                                        from_date='01/11/2021',
+                                        to_date='05/11/2021')
         df['Nombre'] = ticker
        # print(df.head())
         acclist.append(df)
