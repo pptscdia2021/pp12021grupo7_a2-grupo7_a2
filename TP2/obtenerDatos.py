@@ -11,7 +11,7 @@ def obtener_datos():
     # indica la ruta
     url_page = 'https://www.bolsamadrid.es/esp/aspx/Mercados/Precios.aspx?indice=ESI100000000'
     id_table = 'ctl00_Contenido_tblAcciones'
-    path = 'bolsa_ibex35.csv'
+    path = 'web_scraping.csv'
     page = requests.get(url_page).text 
     soup = BeautifulSoup(page, "lxml")
 
@@ -57,5 +57,5 @@ def obtener_datos():
     df["Min"] = df["Min"].str.replace(",", ".").astype(float)
 
     #Guardamos los datos en el archivo csv
-    df.to_csv('bolsa_ibex35.csv')
+    df.to_csv(path)
     

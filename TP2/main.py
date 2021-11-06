@@ -13,7 +13,7 @@ if __name__ == "__main__":
     print('')
     print('IMPRIMIENDO TABLA DE DATOS BOLSA DE MADRID CON WEB SCRAPING')
     print('')
-    df_bolsaMadrid = pd.read_csv('bolsa_ibex35.csv')
+    df_bolsaMadrid = pd.read_csv('web_scraping.csv')
     print(df_bolsaMadrid)
 
     #Método Yahoo Finance
