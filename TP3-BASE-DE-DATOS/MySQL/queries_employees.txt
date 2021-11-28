@@ -1,0 +1,27 @@
+SELECT * FROM employees;
+
+SELECT * FROM departments;
+
+SELECT gender, count(*) FROM employees where gender ="F"; 
+
+SELECT e.*, t.title from employees e INNER JOIN titles t on (e.emp_no = t.emp_no) where t.title = 'Staff';
+
+INSERT INTO departments(dept_no, dept_name) VALUES ("d010","Data Science");
+
+INSERT INTO employees(emp_no, birth_date, first_name, last_name, gender, hire_date) VALUES (300025, '1985-03-03','Pepe', 'Sanchez','M','2010-05-05');
+
+INSERT INTO dept_manager(emp_no, dept_no, from_date, to_date) VALUES (300025, 'd010', '2015-05-05' ,'2021-11-01');
+
+DELETE FROM employees WHERE first_name = 'Pepe';
+
+SELECT departments.dept_name as Dept ,avg(salaries.salary) as Average_Salary FROM `departments`  LEFT JOIN `dept_emp` 
+ON `dept_emp`.`dept_no` = `departments`.`dept_no` 
+LEFT JOIN `employees` 
+ON `dept_emp`.`emp_no` = `employees`.`emp_no` 
+LEFT JOIN `salaries` 
+ON `salaries`.`emp_no` = `employees`.`emp_no` 
+group by departments.dept_name;
+
+
+
+
