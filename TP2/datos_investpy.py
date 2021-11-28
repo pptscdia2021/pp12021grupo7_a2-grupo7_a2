@@ -1,8 +1,8 @@
 import investpy
 import pandas as pd
 
-def obtenerDatos(acciones):
-
+def obtener_datos(acciones):
+    path = '~/Escritorio/pp12021grupo7_a2-grupo7_a2/TP2/archivos_csv/investpy.csv'
     acclist = list()
     for ticker in acciones:
         df = investpy.get_stock_historical_data(stock=ticker,
@@ -14,4 +14,4 @@ def obtenerDatos(acciones):
         acclist.append(df)
         
     df = pd.concat(acclist)    
-    df.to_csv('investpy.csv')    
+    df.to_csv(path)    

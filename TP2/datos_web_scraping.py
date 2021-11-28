@@ -11,7 +11,7 @@ def obtener_datos():
     # indica la ruta
     url_page = 'https://www.bolsamadrid.es/esp/aspx/Mercados/Precios.aspx?indice=ESI100000000'
     id_table = 'ctl00_Contenido_tblAcciones'
-    path = 'web_scraping.csv'
+    path = '~/Escritorio/pp12021grupo7_a2-grupo7_a2/TP2/archivos_csv/web_scraping.csv'
     page = requests.get(url_page).text 
     soup = BeautifulSoup(page, "lxml")
 
