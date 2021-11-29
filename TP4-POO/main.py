@@ -3,6 +3,7 @@ import datos_web_scraping
 import datos_investpy
 import datos_yahoofinance
 import maximo_minimo
+from PIL import Image
 import pandas as pd
 
 if __name__ == "__main__":
@@ -67,7 +68,9 @@ if __name__ == "__main__":
             print('')
             maximo_minimo.Maximo_minimo.obtenerMaxMin(df_investpy, by="investpy")
         elif opcion == 10:
-            print ("Graficar cotizaciones maximas y minimas")
+            ''' i = Image.open('/graficos/maximo_minimo_investpy','r')
+            i.show() '''
+            print ("Generar Graficos cotizaciones maximas y minimas")
         elif opcion == 11:
             print ("Graficar accion")
         elif opcion == 12:

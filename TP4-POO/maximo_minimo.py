@@ -1,3 +1,5 @@
+import pandas as pd
+import matplotlib.pyplot as plt
 class Maximo_minimo():
 
     def obtenerMaxMin(df,by):
@@ -19,3 +21,14 @@ class Maximo_minimo():
         print("Cotizacion Máxima: ", max, "corresponde a: ",max_accion)
         print("Cotizacion mínima: ", min, "corresponde a :", min_accion)
 
+        
+        plt.style.use('Solarize_Light2')
+        fig, ax = plt.subplots()
+        #fig.set_size_inches(7,12)
+        ax.bar(max_accion, max, label ='Valor máximo', color="#04D8B2")
+        ax.bar(min_accion, min, label ='Valor mínimo', linestyle = 'dashed', color="#FA8072")
+        ax.set_title('Grafico', loc = "left", fontdict = {'fontsize':12, 'fontweight':'bold', 'color':'tab:blue'})
+        plt.legend() 
+        plt.savefig('nombre', bbox_inches='tight')
+        plt.tight_layout();plt.show()
+        return
